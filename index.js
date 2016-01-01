@@ -7,13 +7,14 @@ var app = require('express')();
 app.use(cors());
 app.use(bodyParser.json());
 var https = require('https');
-var io = require('socket.io')(server);
 var doc = {};
 
-https.createServer({
+var server = https.createServer({
   key: fs.readFileSync('privkey.pem'),
   cert: fs.readFileSync('fullchain.pem')
 }, app).listen(3000);
+
+var io = require('socket.io')(server);
 
 app.get('/document', function(req, res) {
   var docKeys = Object.keys(doc);
