@@ -65,6 +65,10 @@ app.post('/document/:documentId', function(req, res) {
       _.assign(doc[documentId].history, e);
       doc[documentId].channel.emit('revision', e);
     });
+    socket.on('titleChange', function(e) {
+      doc[documentId].title = e.title;
+      doc[documentId].channel.emit('titleChange', e);
+    });
   });
   res.sendStatus(201);
 });
