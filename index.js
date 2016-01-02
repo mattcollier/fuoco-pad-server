@@ -18,15 +18,26 @@ var io = require('socket.io')(server);
 
 app.get('/document', function(req, res) {
   var docKeys = Object.keys(doc);
-  var docs = {};
+  // model docs as an array
+  var docs = [];
   for(var key in docKeys) {
     var keyName = docKeys[key];
-    docs[keyName] = {
+    docs.push({
       id: keyName,
       title: doc[keyName].title,
       lastModified: doc[keyName].lastModified
-    };
+    });
   }
+  // model docs as an object
+  // var docs = {};
+  // for(var key in docKeys) {
+  //   var keyName = docKeys[key];
+  //   docs[keyName] = {
+  //     id: keyName,
+  //     title: doc[keyName].title,
+  //     lastModified: doc[keyName].lastModified
+  //   };
+  // }
   res.json(docs);
 });
 
