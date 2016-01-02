@@ -68,7 +68,7 @@ app.post('/document/:documentId', function(req, res) {
         if(_.isUndefined(objVal)) {
           var newObj = {};
           newObj[key] = sourceVal;
-          doc[documentId].channel.emit('revision', e);
+          doc[documentId].channel.emit('revision', revision);
           return sourceVal;
         }
         console.log('HISTORY COLLISION:', key);
