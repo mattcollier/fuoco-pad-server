@@ -61,9 +61,20 @@ app.post('/document/:documentId', function(req, res) {
     socket.on('cursor', function(e) {
       doc[documentId].channel.emit('cursor', e);
     });
-    socket.on('revision', function(e) {
-      _.assign(doc[documentId].history, e);
-      doc[documentId].channel.emit('revision', e);
+    socket.on('revision', function(revision) {
+      // write the revision ONLY if it doesn't already exist
+      _.assign(
+        doc[documentId].history, revision, function(objVal, sourceVal, key) {
+        if(_.isUndefined(objVal)) {
+          var newObj = {};
+          newObj[key] = sourceVal;
+          doc[documentId].channel.emit('revision', e);
+          return sourceVal;
+        }
+        console.log('HISTORY COLLISION:', key);
+        return objVal;
+      });
+      // _.assign(doc[documentId].history, e);
     });
     socket.on('titleChange', function(e) {
       doc[documentId].title = e.title;
