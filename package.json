@@ -1,21 +1,22 @@
 {
-  "name": "socket.db",
-  "version": "1.0.0",
+  "name": "fuoco-pad-server",
+  "version": "0.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "node fuoco-pad-server.dev.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "async": "^1.5.1",
+    "bedrock": "^1.0.9",
+    "bedrock-mongodb": "^1.0.2",
     "body-parser": "^1.14.2",
     "cors": "^2.7.1",
-    "detect-node": "^2.0.3",
     "express": "^4.13.3",
-    "firepad": "mattcollier/firepad#newServerAdapter",
     "lodash": "^3.10.1",
-    "request": "^2.67.0",
     "socket.io": "^1.3.7"
   }
 }

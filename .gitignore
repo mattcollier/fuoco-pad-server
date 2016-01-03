@@ -3,6 +3,7 @@ logs
 *.log
 
 #certs
+pki
 *.pem
 
 # Runtime data
