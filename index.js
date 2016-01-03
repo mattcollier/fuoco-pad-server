@@ -10,8 +10,8 @@ var https = require('https');
 var doc = {};
 
 var server = https.createServer({
-  key: fs.readFileSync('privkey.pem'),
-  cert: fs.readFileSync('fullchain.pem')
+  key: fs.readFileSync('pki/privkey.pem'),
+  cert: fs.readFileSync('pki/fullchain.pem')
 }, app).listen(3000);
 
 var io = require('socket.io')(server);
