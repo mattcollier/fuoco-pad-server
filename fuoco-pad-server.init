@@ -11,14 +11,14 @@
 
 set -e
 
-test -x /usr/local/bin/node || exit 0
+test -x /usr/bin/node || exit 0
 . /lib/lsb/init-functions
 
 PIDFILE=/var/run/fuoco-server.pid
 
 start() {
   log_daemon_msg "Starting bedrock:" "fuoco-pad-server" || true
-  if start-stop-daemon --start --quiet -d /home/fuoco/fuoco-pad-server --oknodo --background --make-pidfile --pidfile $PIDFILE --exec /usr/local/bin/node -- /home/fuoco/fuoco-pad-server/fuoco-pad-server.js ; then
+  if start-stop-daemon --start --quiet -d /home/fuoco/fuoco-pad-server --oknodo --background --make-pidfile --pidfile $PIDFILE --exec /usr/bin/node -- /home/fuoco/fuoco-pad-server/fuoco-pad-server.js ; then
     log_end_msg 0 || true
   else
     log_end_msg 1 || true
@@ -46,7 +46,7 @@ case "$1" in
     start
     ;;
   status)
-    status_of_proc -p $PIDFILE /usr/local/bin/node && exit 0 || exit $?
+    status_of_proc -p $PIDFILE /usr/bin/node && exit 0 || exit $?
     ;;
   *)
     log_action_msg "Usage: /etc/init.d/fuoco-pad-server {start|stop|restart|status}" || true
