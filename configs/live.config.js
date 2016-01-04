@@ -9,8 +9,8 @@ config.core.workers = 1;
 config.core.worker.restart = true;
 
 // master process while starting
-// config.core.starting.groupId = 'adm';
-// config.core.starting.userId = 'root';
+config.core.starting.groupId = 'adm';
+config.core.starting.userId = 'root';
 
 // master and workers after starting
 config.core.running.groupId = 'fuoco';
