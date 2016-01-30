@@ -20,7 +20,7 @@
     "express": "^4.13.3",
     "fuoco-index-server": "mattcollier/fuoco-index-server#master",
     "lodash": "^3.10.1",
-    "socket.io": "^1.3.7"
+    "socket.io": "^1.4.5"
   },
   "peerDependencies": {
     "bedrock-server": "^1.0.2"
