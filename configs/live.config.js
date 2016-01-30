@@ -20,9 +20,9 @@ config.core.running.userId = 'fuoco';
 config.loggers.app.filename = path.join(_logdir, 'app.log');
 config.loggers.access.filename = path.join(_logdir, 'access.log');
 config.loggers.error.filename = path.join(_logdir, 'error.log');
-config.loggers.email.silent = true;
-config.loggers.email.to = ['cluster@fuoco.floydcommons.com'];
-config.loggers.email.from = 'cluster@fuoco.floydcommons.com';
+// config.loggers.email.silent = true;
+// config.loggers.email.to = ['cluster@fuoco.floydcommons.com'];
+// config.loggers.email.from = 'cluster@fuoco.floydcommons.com';
 
 // server info
 config.server.port = 3000;
@@ -31,5 +31,6 @@ config.server.bindAddr = ['fuoco.floydcommons.com'];
 config.server.domain = 'fuoco.floydcommons.com';
 config.server.host = 'fuoco.floydcommons.com:' + config.server.port;
 config.server.baseUri = 'https://' + config.server.host;
-config.server.key = path.join(__dirname, '..', 'pki', 'privkey.pem');
-config.server.cert = path.join(__dirname, '..', 'pki', 'fullchain.pem');
+
+// secrets
+require('./secrets.js');
